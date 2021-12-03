@@ -30,15 +30,29 @@
   <head>
     <meta charset="utf-8">
     <title>BabboSegreto</title>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/main.css">
-    <script src="js/bootstrap.js"></script>
-    <script src="js/popper1143.js"></script>
-    <script src="js/jquery331.js"></script>
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
   </head>
   <body>
-    <center>
+    <div class="container-fluid">
+
+      <div class="row titolo p-2">
+        <div class="col m-2 p-2">
+          <p class="text-center titolo">Babbo Segreto</p>
+          <p class="text-center sottotitolo"> Clan Uqbar</p>
+        </div>
+      </div>
+
+      <div class="row nastro border border-start-0 border-end-0 pt-2 pb-2 mb-5">
+        <div class="border-start-0 border-end-0 col p-1 border border-white dott text-center fi">
+          <img src='../img/deco.png' class='img-fluid piccolo'>
+        </div>
+      </div>
+
+
       <h1><?php echo($nomeGifter); ?></h1>
       <?php
       //print_r($fetchUserPairs);
@@ -47,7 +61,7 @@
       } else {
         echo("<h2>I babbi segreti stanno per essere scelti, la pagina si ricaricherà automaticamente");
       }
-      ?>  
-    </center>
+      ?>
+    </div>
   </body>
 </html>

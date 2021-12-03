@@ -1,3 +1,13 @@
+@font-face {
+  font-family: natale;
+  src: url(../fonts/Snowballs.ttf);
+}
+
+@font-face {
+  font-family: nomi;
+  src: url(../fonts/stnicholas.ttf);
+}
+
 body {
     color:white;
     /*background: rgb(231,0,0);
@@ -6,15 +16,75 @@ background: -webkit-radial-gradient(circle, rgba(231,0,0,1) 52%, rgba(36,0,0,1) 
 background: radial-gradient(circle, rgba(231,0,0,1) 52%, rgba(36,0,0,1) 93%, rgba(0,0,0,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e70000",endColorstr="#000000",GradientType=1);*/
     background-color: rgb(231,0,0);
-    background-image: url("../img/neve.gif"), radial-gradient(circle, rgba(231,0,0,1) 52%, rgba(36,0,0,1) 93%, rgba(0,0,0,1) 100%);
-
+    /*background-image: url("../img/neve.gif"), linear-gradient(90deg, rgba(56,0,0,1) 0%, rgba(255,0,0,1) 50%, rgba(56,0,0,0.9948354341736695) 100%);*/
+    background-image: url("../img/tessuto.png");
+    font-family: natale;
 }
 
 a{
     color:white;
+    text-decoration:none;
 }
 
 a:hover{
     color:white;
     text-decoration:none;
+}
+
+div.titolo{
+  background-color: #005717;
+  background-image: url("../img/tessuto.png");
+}
+
+div.dott{
+  border-style: dashed!important;
+  border-width: 2px !important;
+  border-left:0px !important;
+  border-right:0px !important;
+}
+
+p.titolo{
+  font-size:20vw;
+}
+
+p.sottotitolo{
+  font-size:17vw;
+}
+
+div.nastro{
+  background-image: url("../img/seta.png");
+  background-repeat: round;
+  border-color: #450000 !important;
+  border-width: 2px !important;
+
+}
+
+div.nome{
+  background-image: url("../img/nominatale1.png");
+  background-repeat: round;
+}
+
+a.nome{
+  font-family: nomi;
+  font-size:7vw;
+  color:black;
+}
+
+p.ass{
+  position:absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-45%, -50%);
+}
+
+div.fi{
+  position:relative
+}
+
+img.piccolo{
+  max-width: 20% !important;
+}
+
+img.medio{
+  max-width: 75% !important;
 }
