@@ -40,8 +40,8 @@ class DbConnection {
       return $rows;
     }
 
-    public function postPair($idGifter, $idGifted) {
-      $sql = "insert into pairs (gifter,gifted) values ('$idGifter', '$idGifted')";
+    public function postPair($idGifter, $idGifted, $estraction) {
+      $sql = "insert into pairs (gifter,gifted,estrazione) values ('$idGifter', '$idGifted', '$estraction')";
     
       $stmt = $this->pdo->query($sql);
     }

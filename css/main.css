@@ -56,6 +56,7 @@ div.nastro{
   background-repeat: round;
   border-color: #450000 !important;
   border-width: 2px !important;
+  margin-bottom: 200px !important;
 
 }
 
@@ -98,4 +99,28 @@ img.centra{
 
 img.medio{
   max-width: 75% !important;
+}
+
+table{
+  font-family: nomi;
+  font-size: 4vw;
+  color: white !important;
+}
+
+table:hover{
+  color: white !important;
+}
+
+div.testo{
+  font-family: nomi;
+  font-size: 4vw;
+  color: white !important;
+}
+
+.btn-lg{
+  font-size: 3rem !important;
+}
+
+img.carica{
+  max-width:100px  !important;
 }
