@@ -78,11 +78,22 @@ p.ass{
 }
 
 div.fi{
-  position:relative
+  position:relative;
+}
+
+div.pazzo{
+  max-height: 70px;
 }
 
 img.piccolo{
-  max-width: 20% !important;
+  max-width: 30% !important;
+  
+}
+
+img.centra{
+  position:relative;
+  bottom:75px;
+  max-width: 40% !important;
 }
 
 img.medio{
