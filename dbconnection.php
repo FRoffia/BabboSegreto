@@ -30,7 +30,7 @@ class DbConnection {
     }
 
     public function getPairsByUserId($gifterId) {
-      $sql = "select * from pairs where gifter = '$gifterId'";
+      $sql = "select * from pairs where gifter = '$gifterId' order by id desc";
 
       $stmt = $this->pdo->query($sql);
       $stmt->execute();

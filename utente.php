@@ -10,25 +10,24 @@
     header("location: /BabboSegreto/");
   }
   $userHash = $_REQUEST["u"];
+  $year = $_REQUEST["y"];
 
   require_once("api/getUsers.php");
 
   foreach($fetchUsers as $user){
     //echo($user["nome"].md5($user["nome"]));
-    if( md5($user["nome"]) == $userHash){$userId = $user["id"];}
+    if( md5($user["nome"]) == $userHash){$userId = $user["id"]; $nomeGifter = $user["nome"];}
   }
 
   require_once("api/getPairsByUserId.php");
 
   //print_r($fetchUserPairs);
-
-  foreach($fetchUsers as $user){
-      if($user["id"] == $fetchUserPairs[0]["gifter"]){
-        $nomeGifter = $user["nome"];
-      }
+  if($fetchUserPairs && substr($fetchUserPairs[0]["insertDate"], 0, 4) == $year){
+    foreach($fetchUsers as $user){
       if($user["id"] == $fetchUserPairs[0]["gifted"]){
         $nomeGifted = $user["nome"];
       }
+    }
   }
 
 
@@ -64,15 +63,51 @@
       </div>
 
 
-      <h1><?php echo($nomeGifter); ?></h1>
-      <?php
-      //print_r($fetchUserPairs);
-      if($fetchUserPairs[0]){
-        echo("<h2>Sei il babbo segreto di:</h2><br><p>".$nomeGifted."</p>");
-      } else {
-        echo("<h2>I babbi segreti stanno per essere scelti, la pagina si ricaricherà automaticamente");
-      }
-      ?>
+
+      <div class="row">
+        <div class="col text-center">
+          <p class="sottotitolo"><?php echo($nomeGifter); ?></p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col text-center">
+          <p style='font-size: 12vw!important;'>Sei il babbo segreto di:</p><br>
+          <?php
+          //print_r($fetchUserPairs);
+          if($fetchUserPairs && substr($fetchUserPairs[0]["insertDate"], 0, 4) == $year){
+            echo("
+            <div class='row m-5'>
+              <div class='col text-center fi'>
+                <img src='../img/targ5.png' class='img-fluid medio'>
+                <p class='text-center pt-2 pb-2 ass' >
+                  <a class='nome' >".$nomeGifted."</a>
+                </p>
+              </div>
+            </div>");
+          } else {
+            echo("<img id='load' class='carica' src='../img/load.gif'>");
+          }
+          ?>
+        </div>
+      </div>
     </div>
+    <script>
+      var year=<?php if($fetchUserPairs && substr($fetchUserPairs[0]["insertDate"], 0, 4) == $year){echo($year);}else{echo("0");}?>
+
+      if(!year){
+        $(document).ready(function(){
+          setInterval(function(){
+            $.ajax({
+              url: "../api/controllaCoppie.php",
+              method: "GET",
+              data:{ y: <?php echo($year) ?>, u: '<?php echo($userId)?>'},
+              error: function(){alert("mRda")},
+              success: function(data){if(Number(data)){location.reload()}}
+            });
+          }, 2000);
+        });
+      }
+    </script>
   </body>
 </html>

@@ -72,7 +72,7 @@
                 <th scope='row'>".$user['id']."</th>
                 <td>".$user['nome']."</td>
                 <td>".$user["insertDate"]."</td>
-                <td><input type='hidden' value='localhost/BabboSegreto/utente.php/?u=".md5($user["nome"])."' id='u".$user['id']."'></input>
+                <td><input type='hidden' value='localhost/BabboSegreto/utente.php/?u=".md5($user["nome"])."&y=".date('Y')."' id='u".$user['id']."'></input>
                 <button class='' type='button' onclick='copyToClipboard(".'"'.'u'.$user["id"].'"'.")'>Copia</button>
               </tr>");
             }
@@ -100,7 +100,7 @@
         data:{ e: [<?php echo($fetchLastPair[0]["estrazione"]) ?>]},
         error: function(){alert("mRda")},
         complete: function(){var mesi = dt.getMonth()+1;$("#load").hide();$("#carica").removeAttr("disabled");$("#data").html(dt.getFullYear()+"-"+ mesi + "--" +dt.getDate()+" "+dt.getHours()+":"+dt.getMinutes()+":"+dt.getSeconds())}
-      })
+      });
     });
 
     function copyToClipboard(id) {
